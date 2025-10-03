@@ -1,5 +1,5 @@
 # Etapa 1: build
-FROM golang:1.22 AS builder
+FROM golang:1.25 AS builder
 
 WORKDIR /app
 
@@ -10,7 +10,7 @@ RUN go mod download
 COPY . .
 
 # Compilar binario
-RUN go build -o user-api ./cmd
+RUN go build -o user-api ./cmd/main
 
 # Etapa 2: runtime
 FROM gcr.io/distroless/base-debian12
